@@ -64,7 +64,12 @@ foreach ($images as $image) {
     );
 
 }
-if (is_array($items)) asort($items);
+
+//if this isn't an array then something went wrong
+if (!is_array($items)) return;
+
+//sort
+asort($items);
 
 //output
 if ($dump) return print_r($items);
