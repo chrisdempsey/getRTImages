@@ -31,6 +31,7 @@ $id = $modx->getOption('id',$scriptProperties,$modx->resource->id);
 $tv = $modx->getOption('tv',$scriptProperties,null);
 $tpl = $modx->getOption('tpl',$scriptProperties,null);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,PHP_EOL);
+$sort = $modx->getOption('sort',$scriptProperties,'ASC');
 $indexAttr = $modx->getOption('indexAttr',$scriptProperties,'data-index');
 $limit = $modx->getOption('limit',$scriptProperties,10);
 
@@ -40,20 +41,27 @@ if (!$tv || empty($tv) || empty($id)) return;
 //dump results if no tpl
 $dump = (!$tpl || empty($tpl)) ? true : false;
 
+//get resource
 $res = $modx->getObject('modResource', $id);
+
+//check it
+if (!$res) return;
+
+//get TV
 $html = $res->getTVValue($tv);
 
-//if failed to get html we gotta escape
+//if empty, escape
 if (!$html || empty($html)) return;
 
+//extract images
 $doc = new DOMDocument();
 $doc->loadHTML($html);
 $images = $doc->getElementsByTagName('img');
 
-//if no image elements return nothing
+//if no image elements, return nothing
 if ($images->length === 0) return;
 
-//loop
+//get attributes
 foreach ($images as $image) {
     
      $items[] = array(
@@ -69,7 +77,10 @@ foreach ($images as $image) {
 if (!is_array($items)) return;
 
 //sort
-asort($items);
+if (strtoupper($sort) === 'ASC') asort($items);
+if (strtoupper($sort) === 'DESC') arsort($items);
+if (strtolower($sort) === 'natural') natsort($items);
+if (strtoupper($sort) === 'RAND' || strtolower($sort) === 'random') shuffle($items);
 
 //output
 if ($dump) return print_r($items);
