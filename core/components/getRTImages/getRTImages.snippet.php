@@ -43,9 +43,15 @@ $dump = (!$tpl || empty($tpl)) ? true : false;
 $res = $modx->getObject('modResource', $id);
 $html = $res->getTVValue($tv);
 
+//if failed to get html we gotta escape
+if (!$html || empty($html)) return;
+
 $doc = new DOMDocument();
 $doc->loadHTML($html);
 $images = $doc->getElementsByTagName('img');
+
+//if no image elements return nothing
+if ($images->length === 0) return;
 
 //loop
 foreach ($images as $image) {
@@ -58,7 +64,7 @@ foreach ($images as $image) {
     );
 
 }
-asort($items);
+if (is_array($items)) asort($items);
 
 //output
 if ($dump) return print_r($items);
