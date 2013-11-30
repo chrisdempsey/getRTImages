@@ -1,4 +1,10 @@
 getRTImages
 =================================
 
-1.0.0-beta1 Initial beta release.
+Nov.29th, 2013
+1.1.0-beta1
+Added sorting options and more checks
+
+Nov.28th, 2013
+1.0.0-beta1 
+Initial beta release.
