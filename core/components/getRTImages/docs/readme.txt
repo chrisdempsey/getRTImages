@@ -1,7 +1,7 @@
 ----------------------------
 Addon: getRTImages
 ----------------------------
-Version: 1.0.0-beta1
+Version: 1.2.0-beta1
 Since: November 28, 2013
 Author: YJ Tso, Sepia River <info@sepiariver.com>
 License: GNU GPLv2 (or later at your option)
@@ -10,6 +10,8 @@ Returns values from html img elements in a specified TV
 and formats based on &tpl Chunk. Useful for slideshows.
 Can optionally sort img elements by data-index or another 
 specified attribute.
+
+Also includes separate snippet to extract list items.
 
 Thanks for using MODx Revolution.
 

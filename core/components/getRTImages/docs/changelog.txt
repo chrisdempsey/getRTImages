@@ -2,6 +2,10 @@ getRTImages
 =================================
 
 Nov.29th, 2013
+1.2.0-beta1
+Added getRTListItems snippet
+
+Nov.29th, 2013
 1.1.0-beta1
 Added sorting options and more checks
 
