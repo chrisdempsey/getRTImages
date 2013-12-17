@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>GetRTImages by sepiariver</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>GetRTImages</h1>
+        <p>Get values from html img elements in a specified TV. Useful for slideshows.</p>
+
+        <p class="view"><a href="https://github.com/sepiariver/getRTImages">View the Project on GitHub <small>sepiariver/getRTImages</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sepiariver/getRTImages/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sepiariver/getRTImages/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sepiariver/getRTImages">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="the-basics" class="anchor" href="#the-basics"><span class="octicon octicon-link"></span></a>The Basics</h1>
+
+<ol>
+<li>Setup a Rich Text TV</li>
+<li>Install getRTImages via Package Management</li>
+<li>Call the Snippet</li>
+<li>Template the output with a Chunk</li>
+<li>Content Editors can upload an arbitrary number of images using whichever Rich Text Editor you have installed, and they will be displayed accordingly. It doesn't matter if they put bad markup in the TV, only img elements are extracted.
+# Use Case
+This is best suited for simple slideshows. Images can be managed on a per-resource basis, with a UI that is already familiar to content authors and end users - the Rich Text Editor.</li>
+</ol><p>There are, of course, many free and premium gallery Extras that can do a whole lot more, but often they're "too much". MIGX is the usual go-to for this use case, but that takes a bit of setup, and if you're trying to teach someone else how to setup a slideshow, the getRTImages method is incredibly easy to teach. It's also cleaner in the Resource Tree, versus using nested Resources to manage images...and frankly that's not really what Resources were intended to be used for.</p>
+
+<p>In the end, this is only one of many slideshow &amp; gallery management options in MODX, so you have the freedom to choose the one most appropriate for your circumstances.</p>
+
+<h1>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How To Use</h1>
+
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3>
+<a name="snippet-call" class="anchor" href="#snippet-call"><span class="octicon octicon-link"></span></a>Snippet Call:</h3>
+
+<p><code>[[getRTImages? &amp;tv=`rich_text_TV` &amp;tpl=`image_list_tpl`]]</code>
+This would extract all html img elements, grab the "src", "alt", "title", and "data-index" attributes and make them available as placeholders in the &amp;tpl Chunk. Up to 10 images will be returned by default, but that can be modified using the &amp;limit property.</p>
+
+<p>Template Chunk:
+<code>&lt;li&gt;&lt;a href="[[+src]]" title="[[+title]]"&gt;&lt;img src="[[+src]]" alt="[[+alt]]"&gt;&lt;/a&gt;&lt;/li&gt;</code></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sepiariver">sepiariver</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
